@@ -26,6 +26,10 @@
         <div class="name">Platform:</div>
         <div class="value">{{ platform }}</div>
       </div>
+      <div class="item">
+        <div class="name">Environment:</div>
+        <div class="value">{{ nodeenv }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +43,8 @@
         node: process.versions.node,
         path: this.$route.path,
         platform: require('os').platform(),
-        vue: require('vue/package.json').version
+        vue: require('vue/package.json').version,
+        nodeenv: process.env.NODE_ENV
       }
     }
   }

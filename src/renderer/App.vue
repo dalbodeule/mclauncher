@@ -1,6 +1,12 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <div class="titlebar">
+      <div class="right">
+        <!--<div class="button close" @onclick="app.quit()"></div>-->
+      </div>
+    </div>
+    <div class="main">
+    </div>
   </div>
 </template>
 
@@ -11,5 +17,21 @@
 </script>
 
 <style>
-  /* CSS */
+  .titlebar {
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+    height: 30px;
+    width: auto;
+    background-color: gray;
+  }
+
+  .titlebar .button {
+    -webkit-app-region: no-drag;
+  }
+
+  .main {
+    background-color: white;
+    width: auto;
+    height: 600px;
+  }
 </style>
