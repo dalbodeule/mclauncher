@@ -5,23 +5,23 @@
     <div class="titlebar">
       <div class="drag-region">
         <div class="window-title">
-          TEST
+          <span>TEST</span>
         </div>
         <div class="window-controls">
-          <div class="button min-button" @click="min()">
+          <div class="btn min-btn" @click="min()">
             <span>&#xE921;</span>
           </div>
           <div v-if="isMaximized == false">
-            <div class="button max-button" @click="max()">
+            <div class="btn max-btn" @click="max()">
               <span>&#xE922;</span>
             </div>
           </div>
           <div v-else>
-            <div class="button restore-button" @click="restore()">
+            <div class="btn restore-btn" @click="restore()">
               <span>&#xE923;</span>
             </div>
           </div>
-          <div class="button close-button" @click="close()">
+          <div class="btn close-btn" @click="close()">
             <span>&#xE8BB;</span>
           </div>
         </div>
@@ -85,6 +85,8 @@
 </script>
 
 <style>
+  @import "~bulma/css/bulma.css";
+  
   * {
     margin: 0;
     padding: 0;
@@ -103,6 +105,7 @@
   html, body {
     height: 100%;
     margin: 0;
+    overflow-y: hidden;
   }
 
   body {
@@ -110,7 +113,7 @@
     background: #fff;
     color: #000;
     border: 1px solid rgb(221,138,60);
-    overflow-y: hidden;
+    overflow-y: hidden !important;
   }
 
   div.titlebar {
@@ -156,7 +159,7 @@
     font-size: 10px;
     -webkit-app-region: no-drag;
   }
-  .window-controls .button {
+  .window-controls .btn {
     grid-row: 1 / span 1;
     display: flex;
     justify-content: center;
@@ -168,20 +171,20 @@
     opacity: 0.8;
     font-family: "Segoe MDL2 Assets";
   }
-  .window-controls .button:hover {
+  .window-controls .btn:hover {
     background: rgba(255, 255, 255, 0.2);
   }
-  .window-controls .button.min-button {
+  .window-controls .btn.min-btn {
     grid-column: 1;
   }
-  .window-controls .button.max-button,
-  .window-controls .button.restore-button {
+  .window-controls .btn.max-btn,
+  .window-controls .btn.restore-btn {
     grid-column: 2;
   }
-  .window-controls .button.close-button {
+  .window-controls .btn.close-btn {
     grid-column: 3;
   }
-  .window-controls .button.close-button:hover {
+  .window-controls .btn.close-btn:hover {
     background: #E81123;
   }
 
@@ -189,6 +192,6 @@
     height: calc(100% - 32px);
     margin-top: 32px;
     padding: 20px;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
 </style>

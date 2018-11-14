@@ -1,5 +1,7 @@
 <template>
-    <p>LoggerPage</p>
+  <div class="content">
+    <h1>LoggerPage</h1>
+  </div>
 </template>
 
 <style>

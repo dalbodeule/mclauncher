@@ -1,8 +1,8 @@
 <template>
-  <div>
-    <p>MainPage</p>
+  <div class="content">
+    <h1>MainPage</h1>
 
-    <button @click="loggerLaunch()">Logger Launch</button>
+    <div class="button" @click="loggerLaunch()">Logger Launch</div>
   </div>
 </template>
 
