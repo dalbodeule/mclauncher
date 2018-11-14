@@ -1,6 +1,8 @@
 'use strict'
 
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
+import * as loggerWindow from './logger'
+import Store from 'electron-store'
 
 /**
  * Set `__static` path to static files in production
@@ -12,8 +14,18 @@ if (process.env.NODE_ENV !== 'development') {
 
 let mainWindow
 const winURL = process.env.NODE_ENV === 'development'
-  ? `http://localhost:9080`
+  ? `http://localhost:9080/#`
   : `file://${__dirname}/index.html`
+
+const store = new Store()
+
+if (!store.get('mc.location')) {
+  let folder = process.env.APPDATA ||
+    (process.platform === 'darwin'
+      ? process.env.HOME + 'Library/Preferences' : '/var/local')
+  store.set('mc.location', `${folder}\\mclauncher\\.minecraft\\`)
+}
+console.log(store.get('mc.location'))
 
 function createWindow () {
   /**
@@ -24,8 +36,12 @@ function createWindow () {
     minHeight: 630,
     width: 600,
     minWidth: 600,
+    title: 'main',
     frame: false,
-    movable: true
+    movable: true,
+    webPreferences: {
+      webSecurity: false
+    }
   })
 
   mainWindow.loadURL(winURL)
@@ -51,6 +67,10 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+ipcMain.on('loggerOpen', (e) => {
+  loggerWindow.createWindow()
 })
 
 /**

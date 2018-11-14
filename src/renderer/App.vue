@@ -27,21 +27,22 @@
         </div>
       </div>
     </div>
-
-    <div class="contents">
-      <h1>Hello World!</h1>
-      <p>Lorem ipsum dolor sit amet...</p>
-    </div>
+    <router-view class="contents"></router-view>
   </div>
 </template>
 
 <script>
   import electron from 'electron'
+  import MainPage from '@/components/MainPage'
+  
   const remote = electron.remote
   let window = remote.getCurrentWindow()
 
   export default {
     name: 'mclauncher',
+    components: {
+      MainPage
+    },
     data () {
       return {
         isMaximized: false
@@ -106,9 +107,9 @@
 
   body {
     font-family: sans-serif;
-    background: #1A2933;
-    color: #fff;
-    border: 1px solid #48545c;
+    background: #fff;
+    color: #000;
+    border: 1px solid rgb(221,138,60);
     overflow-y: hidden;
   }
 
@@ -117,7 +118,7 @@
     position: fixed;
     height: 32px;
     width: calc(100% - 2px);
-    background: #254053;
+    background: rgb(230,154,75);
     top: 0;
   }
   div.titlebar div.drag-region {
@@ -184,22 +185,10 @@
     background: #E81123;
   }
 
-
-  div.contents {
+  .contents {
     height: calc(100% - 32px);
     margin-top: 32px;
     padding: 20px;
     overflow-y: auto;
-  }
-
-  h1 {
-    margin: 0 0 10px 0;
-    font-weight: 600;
-    line-height: 1.2;
-  }
-
-  p {
-    margin-top: 10px;
-    color: rgba(255, 255, 255, 0.4);
   }
 </style>
