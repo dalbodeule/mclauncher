@@ -165,27 +165,20 @@
     user-select: none;
     cursor: default;
     opacity: 0.8;
+    font-family: "Segoe MDL2 Assets";
   }
   .window-controls .button:hover {
     background: rgba(255, 255, 255, 0.2);
   }
   .window-controls .button.min-button {
     grid-column: 1;
-    font-family: "Segoe MDL2 Assets";
   }
   .window-controls .button.max-button,
   .window-controls .button.restore-button {
     grid-column: 2;
   }
-  .window-controls .button.max-button {
-    font-family: "Segoe MDL2 Assets";
-  }
-  .window-controls .button.restore-button {
-    font-family: "Segoe MDL2 Assets";
-  }
   .window-controls .button.close-button {
     grid-column: 3;
-    font-family: "Segoe MDL2 Assets";
   }
   .window-controls .button.close-button:hover {
     background: #E81123;
